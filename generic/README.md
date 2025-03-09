@@ -29,7 +29,7 @@ Active Directory (AD) is a **centralized directory service** developed by Micros
 Active Directory consists of multiple layers, which help organize and manage network resources efficiently.
 
 ### 🔹 **Logical Structure**
-- **Forest** → The highest-level structure that contains multiple domains.
+* **Forest** → The highest-level structure that contains multiple domains.
 ``` Example
                       [Forest Root Domain]
                                |
@@ -42,9 +42,16 @@ Active Directory consists of multiple layers, which help organize and manage net
 [Users, Computers]    [Users, Computers]     [Users, Computers]
 
 ```
-- **Domain** → A logical group of users, computers, and objects that share a security boundary.
-- **Organizational Units (OUs)** → Subdivisions within a domain that help organize objects (e.g., Users, Groups, Computers).
-- **Objects** → Individual entities like users, computers, and printers.
+* **Domain**
+  * A logical group of users, computers, and objects that share a security boundary.
+  * Separate entities in the forest
+  * They can represent different regions, departments, or any organizational unit
+  * They are linked by a trust relationship
+* **Organizational Units (OUs)**
+  * Subdivisions within a domain that help organize objects (e.g., Users, Groups, Computers).
+* **Objects** → Individual entities like users, computers, and printers.
+* **Shared Schema**
+  * All domains within a forest share the same schema ; they follow the same rules for data organization.
 
 ### 🔹 **Physical Structure**
 ```ascii
@@ -86,13 +93,24 @@ Active Directory consists of multiple layers, which help organize and manage net
 ### 🔹 **Domain Controllers (DCs)**
 - Store and manage the Active Directory database (`NTDS.dit`).
 - Handle authentication and authorization.
+- `NTDS.dit
+  - It is the **Active Directory database file** where all directory data is stored.
+  - Stores user group information, computer accounts, security groups, attributes, and directory schema.
+  - Also contains password hashed. Therefore, is accessed only by authorized personnel.
+  - By default, it resides in the `%SystemRoot%\NTDS\` folder on a Domain Controller (e.g., `C:\Windows\NTDS\NTDS.dit`).
+  - Uses a **Jet (Joint Engine Technology) Database Engine** to manage data efficiently.
+    - Lightweight and powerful engine primarily used for managing and accessing structured data.
+    - Ensures efficient storage and retrieval of directory data.
 
 ### 🔹 **Group Policy Objects (GPOs)**
 - Used to enforce security settings, configurations, and restrictions on users and computers.
+- Applied to **Organizational Units** (**OUs**), sites, or domains, and they affect all objects (e.g., users and computers) within those containers.
 - Examples:
-  - **Enforcing password complexity**
-  - **Restricting software installation**
+  - **Setting a Desktop Wallpaper**
+  - **Enforcing Password Policies**
+  - **Deploying Software via GPO**
   - **Mapping network drives**
+  - **Blocking USB Devices Except Specific Ones**
 
 ### 🔹 **FSMO Roles (Flexible Single Master Operations)**
 Active Directory has **five FSMO roles** responsible for managing critical operations:
