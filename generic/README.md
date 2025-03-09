@@ -115,11 +115,26 @@ Active Directory consists of multiple layers, which help organize and manage net
 ### 🔹 **FSMO Roles (Flexible Single Master Operations)**
 Active Directory has **five FSMO roles** responsible for managing critical operations:
 
-1. **Schema Master** – Controls schema changes (data structure of AD).
-2. **Domain Naming Master** – Manages domain additions/removals.
-3. **RID Master** – Allocates security identifiers (SIDs) for objects.
+1. **Schema Master**
+    * Controls schema changes (data structure of AD).
+    * Ensures schema changes are replicated to all DCs
+
+2. **Domain Naming Master**
+    * Ensures unique naming of domains across the forest.
+    * Handles adding or removing domains from the forest.
+
+3. **RID Master**
+    * Allocates unique pools of Relative Identifiers (RIDs) to Domain Controllers in the domain.
+    * RIDs are used to create unique Security Identifiers (SIDs) for objects.
+    * If a user is deleted and another user is created with the same name, they will have different SIDs because the RID part will be unique. This ensures that permissions assigned to the old user don't automatically transfer to the new one.
+
 4. **PDC Emulator** – Handles password changes, time sync, and legacy authentication.
+    * Acts as a Primary Domain Controller (PDC) for legacy systems.
+    * Handles password changes and account lockout.
+    * Synchronizes time for all devices in the domain.
+
 5. **Infrastructure Master** – Manages inter-domain object references.
+    * Updates cross-domain object references, like when a user in one domain is a member of a group in another domain.
 
 ### 🔹 **Read-Only Domain Controllers (RODCs)**
 - Provide **read-only copies** of AD for **remote offices** or **low-security locations**.
