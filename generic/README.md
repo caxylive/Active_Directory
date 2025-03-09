@@ -23,6 +23,12 @@ Active Directory (AD) is a **centralized directory service** developed by Micros
 - Group Policy enforcement
 - Integration with **cloud services (Azure AD)**
 
+### Accounting:
+- The industry widely uses RADIUS for network authentication and accounting, especially for remote access scenarios like VPNs and Wi-Fi. It's considered the standard due to its compatibility with most network devices and its ability to integrate seamlessly with Active Directory.
+- For managing administrative access to network devices, TACACS+ is still a popular choice because of its granular control over authorization and detailed accounting capabilities.
+- Additionally, many organizations are adopting **cloud-based identity and access management** (**IAM**) solutions, such as **Azure Active Directory** or **Okta**, which provide advanced features like multi-factor authentication (**MFA**), single sign-on (**SSO**), and detailed activity logs for accounting.
+- For network traffic monitoring and accounting, protocols like **NetFlow** and **sFlow** are commonly used, alongside tools like **SolarWinds** or **Splunk** for detailed analysis and reporting.
+
 ---
 
 ## Active Directory Structure
