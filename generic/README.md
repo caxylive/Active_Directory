@@ -30,7 +30,7 @@ Active Directory consists of multiple layers, which help organize and manage net
 
 ### 🔹 **Logical Structure**
 - **Forest** → The highest-level structure that contains multiple domains.
-```ascii
+``` Example
                       [Forest Root Domain]
                                |
        -------------------------------------------------
