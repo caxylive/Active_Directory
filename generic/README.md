@@ -69,6 +69,14 @@ Active Directory consists of multiple layers, which help organize and manage net
 - **Domain Controllers (DCs)** → Servers that store AD data and handle authentication.
 - **Sites** → Physical locations with different network connections.
 - **Replication** → Synchronization of AD data between domain controllers.
+  * Intra-site
+    * Within the same site
+    * Between DCs like DC1, DC2, and DC3
+    * Frequent and optimized for speed
+  * Intersite
+    * Across sites
+    * Over WAN links like between Site 1 and Site 2
+    * Uses compression to save bandwidth
 
 [Back to Top](#top)
 
