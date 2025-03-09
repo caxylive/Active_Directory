@@ -1,4 +1,6 @@
-# Active Directory (AD) – Cybersecurity-Focused Guide
+[Active Directory - Generic](https://github.com/caxylive/Active_Directory/blob/main/generic/README.md)
+
+# Active Directory (AD)
 
 ## Table of Contents
 1. [Introduction to Active Directory](#introduction-to-active-directory)
