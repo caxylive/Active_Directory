@@ -47,6 +47,25 @@ Active Directory consists of multiple layers, which help organize and manage net
 - **Objects** → Individual entities like users, computers, and printers.
 
 ### 🔹 **Physical Structure**
+```ascii
+                          [Site 1]
+                             |
+       -----------------------------------------------
+      |                      |                        |
+[DC1 (Domain A)]        [DC2 (Domain A)]         [DC3 (Domain B)]
+      |                      |                        |
+ Replication <---------> Replication <---------> Replication
+                             |
+                         [WAN Link]
+                             |
+                         [Site 2]
+                             |
+       --------------------------------------------
+      |                      |                     |
+[DC4 (Domain C)]      [DC5 (Domain C)]      [DC6 (Domain D)]
+
+```
+
 - **Domain Controllers (DCs)** → Servers that store AD data and handle authentication.
 - **Sites** → Physical locations with different network connections.
 - **Replication** → Synchronization of AD data between domain controllers.
