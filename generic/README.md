@@ -30,6 +30,18 @@ Active Directory consists of multiple layers, which help organize and manage net
 
 ### 🔹 **Logical Structure**
 - **Forest** → The highest-level structure that contains multiple domains.
+```ascii
+                      [Forest Root Domain]
+                               |
+       -------------------------------------------------
+      |                        |                       |
+[Domain A]               [Domain B]              [Domain C]
+      |                        |                       |
+[OU (A1)]                 [OU (B1)]               [OU (C1)]
+      |                        |                       |
+[Users, Computers]    [Users, Computers]     [Users, Computers]
+
+```
 - **Domain** → A logical group of users, computers, and objects that share a security boundary.
 - **Organizational Units (OUs)** → Subdivisions within a domain that help organize objects (e.g., Users, Groups, Computers).
 - **Objects** → Individual entities like users, computers, and printers.
